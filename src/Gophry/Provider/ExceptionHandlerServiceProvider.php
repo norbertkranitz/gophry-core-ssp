@@ -17,7 +17,7 @@ class ExceptionHandlerServiceProvider implements ServiceProviderInterface {
         $app->error(function (\Exception $e, Request $request, $code) use ($app) { 
             $dto = new ExceptionResponseDTO();
             $dto->setMessage($e->getMessage());
-            $statusCode = JsonResponse::HTTP_FATAL_ERROR;
+            $statusCode = JsonResponse::HTTP_INTERNAL_SERVER_ERROR;
             
             if ($e instanceof IDataProviderException) {
                 $data = $e->getData();
