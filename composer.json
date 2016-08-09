@@ -1,0 +1,12 @@
+{
+    "name": "norbertkranitz/gophry-core-ssp",
+    "require": {
+      "norbertkranitz/gophry-dto": "dev-master"
+    },
+    "autoload": {
+		"psr-4": {
+			"Gophry\\Core\\": "src/Gophry/Core/",
+			"Gophry\\Provider\\": "src/Gophry/Provider/"
+		}
+	}
+}
