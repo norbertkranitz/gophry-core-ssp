@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Components\Core;
+namespace Gophry\Provider;
 
 use \Symfony\Component\HttpFoundation\Request;
 

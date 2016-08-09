@@ -1,6 +1,6 @@
 <?php
 
-namespace Gophry\Core\Provider;
+namespace Gophry\Provider;
 
 use \Symfony\Component\HttpFoundation\JsonResponse;
 use \Symfony\Component\HttpFoundation\Request;
