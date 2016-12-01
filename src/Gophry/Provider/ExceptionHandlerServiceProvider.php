@@ -22,17 +22,15 @@ class ExceptionHandlerServiceProvider implements ServiceProviderInterface {
             if ($e instanceof IDataProviderException) {
                 $data = $e->getData();
                 $statusCode = $e->getStatusCode();
-                if ($statusCode === JsonResponse::HTTP_UNPROCESSABLE_ENTITY) {
-                    $list = [];
-                    foreach ($data as $error) {
-                        $key = $error->getPropertyPath();
-                        if (!array_key_exists($key, $list)) {
-                            $list[$key] = [];    
-                        }
-                        $list[$key][] = $error->getMessage();
-                    }
-                    $data = $list;
-                }
+				$list = [];
+				foreach ($data as $error) {
+					$key = $error->getPropertyPath();
+					if (!array_key_exists($key, $list)) {
+						$list[$key] = [];    
+					}
+					$list[$key][] = $error->getMessage();
+				}
+				$data = $list;
                 $dto->setData($data);
             }
             return new JsonResponse($dto->toArray(), $statusCode);
