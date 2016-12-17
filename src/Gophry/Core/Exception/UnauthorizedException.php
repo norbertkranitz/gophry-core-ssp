@@ -9,7 +9,7 @@ class UnauthorizedException extends UnauthorizedHttpException implements IDataPr
     private $data;
     
     public function __construct($message, $data = array()) {
-        parent::__construct($message);
+        parent::__construct('No no no... nooo... Senior Superman no here... nooo...', $message);
         $this->data = $data;
     }
     
