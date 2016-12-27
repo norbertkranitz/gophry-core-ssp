@@ -13,6 +13,7 @@ abstract class Controller {
     private function response($dto, $status = JsonResponse::HTTP_OK) {
         $result = null;
         if (is_array($dto)) {
+			$result = [];
             foreach($dto as &$item) {
                 $result[] = ($item instanceof ResponseDTOInterface) ? $item->toArray() : $item;
             }
@@ -20,7 +21,7 @@ abstract class Controller {
             $result = ($dto instanceof ResponseDTOInterface) ? $dto->toArray() : $dto;
         }
         
-        return new JsonResponse($result, $result === null ? JsonResponse::HTTP_NO_CONTENT : $status);
+        return new JsonResponse($result, $status);
     }
     
     protected function ok($dto = null) {
