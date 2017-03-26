@@ -21,7 +21,11 @@ abstract class Controller {
             $result = ($dto instanceof ResponseDTOInterface) ? $dto->toArray() : $dto;
         }
         
-        return new JsonResponse($result, $status);
+        $response = new JsonResponse();
+        $response->setCharset('UTF-8');
+        $response->setData($result);
+        $response->setStatusCode($status);
+        return $response;
     }
     
     protected function ok($dto = null) {
